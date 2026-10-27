@@ -6,7 +6,7 @@
         sizes="600px sm:800px lg:600px"
         :quality="100"
         :src="image.asset._ref"
-        class="w-full h-full"
+        class="w-full h-full object-cover object-top"
         alt="Vasily Richter's Photo"
       />
     </div>

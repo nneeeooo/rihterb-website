@@ -8,7 +8,7 @@ export default {
     {
       name: 'images',
       title: 'Фото',
-      description: 'Будь-який формат; співвідношення сторін 1:1; розмір 800x800px або більше',
+      description: 'Будь-який формат; розмір 800x800px або більше',
       type: 'array',
       of: [{type: 'image'}],
       validation: (rule: Rule) => rule.min(1).max(2).required(),
