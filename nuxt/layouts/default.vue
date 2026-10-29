@@ -67,6 +67,24 @@ useHead({
 //   meta: [...(i18nHead.value.meta || [])],
 // })
 
+useSchemaOrg([
+  defineWebSite({
+    name: 'Ріхтер',
+    url: 'https://rihterb.pp.ua',
+    inLanguage: ['uk', 'en'],
+  }),
+  definePerson({
+    name: 'Василій Ріхтер',
+    description:
+      'український інді-музикант. пишу психоделічні інді пісні з унікальним саундом. поєдную різні жанри, такі як: гараж рок, сьорф чи навіть електропоп.',
+    image: 'https://rihterb.pp.ua/banner.webp',
+    url: 'https://rihterb.pp.ua',
+    sameAs: [
+      'https://www.instagram.com/6i5h0p/',
+    ],
+  }),
+])
+
 useSeoMeta({
   title: 'Ріхтер',
   description:

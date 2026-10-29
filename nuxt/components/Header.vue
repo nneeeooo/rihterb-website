@@ -10,9 +10,9 @@
         alt="logo"
         class="w-8 h-8"
       />
-      <h1 class="text-[#F8A711] text-logo line-clamp-1 whitespace-nowrap">
+      <span class="text-[#F8A711] text-logo line-clamp-1 whitespace-nowrap">
         {{ getLocalizedString($i18n.locale, header.title) }}
-      </h1>
+      </span>
     </NuxtLink>
     <div class="hidden gap-6 md:flex">
       <HeaderLink

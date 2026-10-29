@@ -60,4 +60,26 @@ definePageMeta({
 
 const store = useSanityStore()
 const release = await store.getReleasePage()
+
+const { locale } = useI18n()
+const img = useImage()
+
+const releaseTitle = computed(() => getLocalizedString(locale.value, release.title))
+const releaseDesc = computed(() =>
+  getLocalizedString(locale.value, release.description)?.slice(0, 160)
+)
+const releaseOgImage = computed(() =>
+  release.cover?.asset?._ref
+    ? img(release.cover.asset._ref, { width: 1200, quality: 90 }, { provider: 'sanity' })
+    : 'https://rihterb.pp.ua/banner.webp'
+)
+
+useSeoMeta({
+  title: () => `${releaseTitle.value} — Ріхтер`,
+  ogTitle: () => releaseTitle.value,
+  description: () => releaseDesc.value,
+  ogDescription: () => releaseDesc.value,
+  ogImage: () => releaseOgImage.value,
+  twitterCard: 'summary_large_image',
+})
 </script>

@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   modules: [
     'nuxt-gtag',
     'nuxt-simple-robots',
+    'nuxt-simple-sitemap',
     'nuxt-schema-org',
     '@nuxtjs/tailwindcss',
     'nuxt-swiper',
@@ -21,9 +22,16 @@ export default defineNuxtConfig({
     'nuxt-icon-tw',
     '@nuxt/fonts',
   ],
+  site: {
+    url: 'https://rihterb.pp.ua',
+  },
+  sitemap: {
+    siteUrl: 'https://rihterb.pp.ua',
+    urls: ['/', '/event', '/release', '/video', '/magazine'],
+  },
   runtimeConfig: {
     public: {
-      siteUrl: process.env.NUX_PUBLIC_SITE_URL || 'https://rihterb.pp.ua',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://rihterb.pp.ua',
     },
   },
   fonts: {
@@ -77,6 +85,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/tailwind.css'],
 
   i18n: {
+    baseUrl: 'https://rihterb.pp.ua',
     defaultLocale: 'uk',
     detectBrowserLanguage: {
       alwaysRedirect: false,

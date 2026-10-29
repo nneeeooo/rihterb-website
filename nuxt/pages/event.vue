@@ -53,4 +53,26 @@ definePageMeta({
 
 const store = useSanityStore()
 const event = await store.getEventPage()
+
+const { locale } = useI18n()
+const img = useImage()
+
+const eventTitle = computed(() => getLocalizedString(locale.value, event.title))
+const eventDesc = computed(() =>
+  getLocalizedString(locale.value, event.text)?.slice(0, 160)
+)
+const eventOgImage = computed(() =>
+  event.images?.[0]?.asset?._ref
+    ? img(event.images[0].asset._ref, { width: 1200, quality: 90 }, { provider: 'sanity' })
+    : 'https://rihterb.pp.ua/banner.webp'
+)
+
+useSeoMeta({
+  title: () => `${eventTitle.value} — Ріхтер`,
+  ogTitle: () => eventTitle.value,
+  description: () => eventDesc.value,
+  ogDescription: () => eventDesc.value,
+  ogImage: () => eventOgImage.value,
+  twitterCard: 'summary_large_image',
+})
 </script>
